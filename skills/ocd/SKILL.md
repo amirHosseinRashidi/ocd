@@ -6,7 +6,7 @@ license: MIT
 
 # OCD — Obsessive-Compulsive Verification Protocol
 
-Author: amirHosseinRashidi
+Author: AmirhosseinRashidi
 
 Prevent premature task completion by executing a strict, non-negotiable verification loop.
 

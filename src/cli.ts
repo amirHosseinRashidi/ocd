@@ -28,7 +28,7 @@ function parseFlags(argv: string[]): CLIFlags {
 function printHelp() {
   console.log(`
 OCD — Obsessive-Compulsive Verification Protocol (v1.0.0)
-Author: amirHosseinRashidi
+Author: AmirhosseinRashidi
 
 USAGE
   $ ocd [flags]

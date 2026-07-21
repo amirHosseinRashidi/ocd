@@ -42,6 +42,9 @@ export async function runCleanlinessCheck(cwd: string, flags: CLIFlags): Promise
         const lines = content.split('\n');
 
         lines.forEach((lineText, idx) => {
+          if (lineText.includes('ocd-ignore')) return;
+          if (idx > 0 && lines[idx - 1].includes('ocd-ignore')) return;
+
           for (const pattern of DEBUG_PATTERNS) {
             if (pattern.regex.test(lineText)) {
               issues.push({
@@ -80,7 +83,11 @@ export async function runTypecheckCheck(cwd: string, flags: CLIFlags): Promise<P
   let cmd = '';
 
   if (existsSync(join(cwd, 'tsconfig.json'))) {
-    cmd = 'npx tsc --noEmit';
+    if (existsSync(join(cwd, 'node_modules', '.bin', 'tsc')) || existsSync(join(cwd, 'node_modules', 'typescript'))) {
+      cmd = 'npx tsc --noEmit';
+    } else {
+      cmd = 'npx -p typescript tsc --noEmit';
+    }
   } else if (existsSync(join(cwd, 'Cargo.toml'))) {
     cmd = 'cargo check';
   } else if (existsSync(join(cwd, 'pyproject.toml')) || existsSync(join(cwd, 'mypy.ini'))) {

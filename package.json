@@ -32,13 +32,13 @@
     "typecheck",
     "ai-agents"
   ],
-  "author": "amirHosseinRashidi",
+  "author": "AmirhosseinRashidi",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amirHosseinRashidi/ocd.git"
+    "url": "git+https://github.com/AmirhosseinRashidi/ocd.git"
   },
-  "homepage": "https://github.com/amirHosseinRashidi/ocd#readme",
+  "homepage": "https://github.com/AmirhosseinRashidi/ocd#readme",
   "engines": {
     "node": ">=18"
   },
