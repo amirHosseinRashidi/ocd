@@ -1,0 +1,53 @@
+{
+  "name": "ocd-agent",
+  "version": "1.0.0",
+  "description": "OCD — Obsessive-Compulsive Verification Protocol. Non-negotiable 4-phase verification engine for AI coding agents.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "ocd": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js"
+  },
+  "keywords": [
+    "ocd",
+    "verification",
+    "quality-assurance",
+    "pre-commit",
+    "code-audit",
+    "agent-gate",
+    "testing",
+    "typecheck",
+    "ai-agents"
+  ],
+  "author": "amirHosseinRashidi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirHosseinRashidi/ocd.git"
+  },
+  "homepage": "https://github.com/amirHosseinRashidi/ocd#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
