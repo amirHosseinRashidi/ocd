@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OCD: Obsessive-Compulsive Verification Protocol for AI Coding Agents</title>
-<meta name="description" content="A preprint introducing OCD, a strict 4-phase verification protocol for LLM coding agents. Authored by AmirhosseinRashidi. Zero-trust verification gate, automated stack trace capture, and agent self-remediation.">
-<meta property="og:title" content="OCD: Obsessive-Compulsive Verification Protocol for AI Coding Agents">
-<meta property="og:description" content="Non-negotiable 4-phase verification engine that intercepts AI coding agent task completion with zero-trust execution gates.">
+<title>OCD Protocol: Complete Documentation & Academic Preprint</title>
+<meta name="description" content="Official academic preprint and complete documentation manual for OCD (Obsessive-Compulsive Verification Protocol). Non-negotiable 4-phase verification gate for AI coding agents. Authored by AmirhosseinRashidi.">
+<meta property="og:title" content="OCD Protocol: Complete Documentation & Academic Preprint">
+<meta property="og:description" content="Complete documentation and academic specification for OCD — the unbypassable zero-trust verification engine for AI coding agents.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://amirhosseinrashidi.github.io/ocd/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="OCD: Obsessive-Compulsive Verification Protocol for AI Coding Agents">
-<meta name="twitter:description" content="Eliminate premature task completion in LLM coding agents. Non-negotiable code quality engine.">
+<meta name="twitter:title" content="OCD Protocol: Complete Documentation & Academic Preprint">
+<meta name="twitter:description" content="Zero-trust 4-phase verification gate, CLI reference, and AI agent integration guide.">
 <link rel="canonical" href="https://amirhosseinrashidi.github.io/ocd/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
     --warn: #f59e0b;
     --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-mono: 'Geist Mono', 'JetBrains Mono', monospace;
-    --max-w: 920px;
+    --max-w: 960px;
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -72,7 +72,6 @@
     overflow-x: hidden;
   }
 
-  /* Grid overlay effect */
   .bg-grid {
     background-size: 48px 48px;
     background-image: 
@@ -86,7 +85,6 @@
     padding: 72px 28px 140px;
   }
 
-  /* Header & Navigation Bar */
   header {
     border-bottom: 1px solid var(--border);
     padding-bottom: 48px;
@@ -115,12 +113,7 @@
     text-transform: uppercase;
   }
 
-  .tag-date {
-    color: var(--muted);
-    border-color: transparent;
-    background: transparent;
-    padding-left: 0;
-  }
+  .tag-date { color: var(--muted); border-color: transparent; background: transparent; padding-left: 0; }
 
   h1 {
     font-size: 2.85em;
@@ -143,17 +136,15 @@
     font-weight: 400;
     margin: 0 0 32px;
     line-height: 1.55;
-    max-width: 780px;
+    max-width: 820px;
   }
 
-  /* Doppelrand Double-Bezel Component */
   .double-bezel {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 1.25rem;
     padding: 6px;
     box-shadow: 0 20px 40px -15px var(--accent-glow);
-    transition: transform 0.3s var(--ease-out), border-color 0.3s ease;
   }
 
   .bezel-core {
@@ -163,7 +154,6 @@
     border: 1px solid rgba(255, 255, 255, 0.04);
   }
 
-  /* Meta Bar */
   .meta-bar {
     display: flex;
     flex-wrap: wrap;
@@ -173,22 +163,11 @@
     font-size: 14.5px;
   }
 
-  .author-info {
-    font-weight: 600;
-  }
+  .author-info { font-weight: 600; }
+  .author-info a { color: var(--accent); text-decoration: none; }
 
-  .author-info a {
-    color: var(--accent);
-    text-decoration: none;
-  }
+  .nav-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
-  .nav-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  /* Button Architecture */
   .btn-pill {
     display: inline-flex;
     align-items: center;
@@ -205,14 +184,8 @@
     cursor: pointer;
   }
 
-  .btn-pill:hover {
-    transform: translateY(-1px);
-    filter: brightness(1.1);
-  }
-
-  .btn-pill:active {
-    transform: scale(0.98);
-  }
+  .btn-pill:hover { transform: translateY(-1px); filter: brightness(1.1); }
+  .btn-pill:active { transform: scale(0.98); }
 
   .btn-icon-wrapper {
     width: 24px;
@@ -223,28 +196,12 @@
     align-items: center;
     justify-content: center;
     font-size: 12px;
-    transition: transform 0.2s ease;
   }
 
-  .btn-pill:hover .btn-icon-wrapper {
-    transform: translateX(2px) translateY(-1px);
-  }
+  .btn-secondary { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+  .btn-secondary .btn-icon-wrapper { background: rgba(255, 255, 255, 0.08); }
 
-  .btn-secondary {
-    background: transparent;
-    color: var(--fg);
-    border: 1px solid var(--border);
-  }
-
-  .btn-secondary .btn-icon-wrapper {
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  /* Abstract Box */
-  .abstract-box {
-    margin: 40px 0;
-  }
-
+  .abstract-box { margin: 40px 0; }
   .abstract-box h2 {
     font-family: var(--font-mono);
     font-size: 11.5px;
@@ -256,18 +213,7 @@
     padding-bottom: 0;
   }
 
-  .abstract-box p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--fg);
-  }
-
-  /* Table of Contents */
-  .toc {
-    margin: 40px 0 60px;
-  }
-
+  .toc { margin: 40px 0 60px; }
   .toc-title {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -286,18 +232,9 @@
     gap: 10px 28px;
   }
 
-  .toc li a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.15s ease;
-  }
+  .toc li a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.15s ease; }
+  .toc li a:hover { color: var(--accent); }
 
-  .toc li a:hover {
-    color: var(--accent);
-  }
-
-  /* Section Headings */
   h2 {
     font-size: 1.6em;
     font-weight: 700;
@@ -320,19 +257,10 @@
     border: 1px solid rgba(56, 189, 248, 0.25);
   }
 
-  h3 {
-    font-size: 1.18em;
-    font-weight: 600;
-    margin: 36px 0 14px;
-    color: var(--fg);
-  }
-
+  h3 { font-size: 1.18em; font-weight: 600; margin: 36px 0 14px; color: var(--fg); }
   p { margin: 0 0 20px; color: var(--fg); }
 
-  /* Interactive Terminal Simulator */
-  .interactive-terminal {
-    margin: 40px 0;
-  }
+  .interactive-terminal { margin: 40px 0; }
 
   .term-tab-bar {
     display: flex;
@@ -353,11 +281,6 @@
     border-bottom: none;
     border-radius: 6px 6px 0 0;
     cursor: pointer;
-    transition: all 0.15s ease;
-  }
-
-  .term-tab:hover {
-    color: #94a3b8;
   }
 
   .term-tab.active {
@@ -384,26 +307,10 @@
   .term-muted { color: #64748b; }
   .term-cmd { color: #38bdf8; font-weight: 600; }
 
-  /* SVG Diagram */
-  .diagram-wrap {
-    margin: 40px 0;
-  }
+  .diagram-wrap { margin: 40px 0; }
+  .diagram-wrap svg { display: block; width: 100%; height: auto; }
+  .caption { font-size: 13px; color: var(--muted); text-align: center; margin-top: 14px; font-family: var(--font-mono); }
 
-  .diagram-wrap svg {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .caption {
-    font-size: 13px;
-    color: var(--muted);
-    text-align: center;
-    margin-top: 14px;
-    font-family: var(--font-mono);
-  }
-
-  /* Data Tables */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -415,21 +322,8 @@
     overflow: hidden;
   }
 
-  th, td {
-    padding: 14px 18px;
-    border-bottom: 1px solid var(--border);
-    text-align: left;
-  }
-
-  th {
-    background: rgba(255, 255, 255, 0.02);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-  }
-
+  th, td { padding: 14px 18px; border-bottom: 1px solid var(--border); text-align: left; }
+  th { background: rgba(255, 255, 255, 0.02); font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
   td.num, th.num { text-align: right; font-family: var(--font-mono); }
   .pos-delta { color: var(--pass); font-weight: 600; font-family: var(--font-mono); }
 
@@ -455,32 +349,13 @@
     color: #f8fafc;
   }
 
-  pre code {
-    background: transparent;
-    border: none;
-    padding: 0;
-    color: inherit;
-  }
-
+  pre code { background: transparent; border: none; padding: 0; color: inherit; }
   ul, ol { padding-left: 22px; margin: 0 0 24px; }
   li { margin: 8px 0; }
 
-  /* References Section */
-  .refs-list {
-    font-size: 14px;
-    padding-left: 22px;
-  }
-
-  .refs-list li {
-    margin-bottom: 14px;
-    color: var(--muted);
-  }
-
-  .refs-list a {
-    color: var(--accent);
-    text-decoration: none;
-    word-break: break-all;
-  }
+  .refs-list { font-size: 14px; padding-left: 22px; }
+  .refs-list li { margin-bottom: 14px; color: var(--muted); }
+  .refs-list a { color: var(--accent); text-decoration: none; word-break: break-all; }
 
   footer {
     margin-top: 96px;
@@ -504,16 +379,16 @@
 
 <header>
   <div class="badge-strip">
-    <span class="tag">Preprint · v1.0</span>
+    <span class="tag">Preprint &amp; Manual · v1.0</span>
     <span class="tag tag-date">July 2026</span>
     <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: var(--pass); border-color: rgba(16, 185, 129, 0.3);">Zero-Trust Gate</span>
   </div>
 
   <h1>
-    <span class="highlight">OCD:</span> Obsessive-Compulsive Verification Protocol for Coding Agents
+    <span class="highlight">OCD Protocol:</span> Verification Architecture &amp; User Manual
   </h1>
   <p class="subtitle">
-    A non-negotiable 4-phase auditing engine with zero-trust execution gates, automated stack trace capture, and agent self-remediation.
+    The complete technical documentation and academic preprint specification for the Obsessive-Compulsive Verification Protocol for AI Coding Agents.
   </p>
 
   <div class="double-bezel">
@@ -553,23 +428,26 @@
 
 <nav class="double-bezel toc">
   <div class="bezel-core">
-    <div class="toc-title">Protocol Specifications & Index</div>
+    <div class="toc-title">Protocol Specifications &amp; Manual Index</div>
     <ol>
-      <li><a href="#intro">1. Problem Formulation</a></li>
-      <li><a href="#psychology">2. Cognitive & Psychological Basis</a></li>
+      <li><a href="#intro">1. Problem Formulation &amp; Failure Modes</a></li>
+      <li><a href="#psychology">2. Cognitive &amp; Psychological Basis</a></li>
       <li><a href="#related">3. Related Work</a></li>
       <li><a href="#architecture">4. The 4-Phase Architecture</a></li>
-      <li><a href="#simulator">5. Interactive Verification Simulator</a></li>
-      <li><a href="#impl">6. Implementation & Engine</a></li>
-      <li><a href="#eval">7. Empirical Benchmarks</a></li>
-      <li><a href="#conclusion">8. Conclusion</a></li>
-      <li><a href="#refs">9. References</a></li>
+      <li><a href="#features">5. Exhaustive Feature Manual</a></li>
+      <li><a href="#cli">6. Complete CLI Reference</a></li>
+      <li><a href="#integrations">7. Agent Skill &amp; CI/CD Integrations</a></li>
+      <li><a href="#api">8. Programmatic TypeScript API</a></li>
+      <li><a href="#simulator">9. Interactive Simulator</a></li>
+      <li><a href="#eval">10. Empirical Benchmarks</a></li>
+      <li><a href="#conclusion">11. Conclusion</a></li>
+      <li><a href="#refs">12. References</a></li>
     </ol>
   </div>
 </nav>
 
 <!-- Section 1 -->
-<h2 id="intro"><span class="sec-num">01</span> Problem Formulation & Premature Completion</h2>
+<h2 id="intro"><span class="sec-num">01</span> Problem Formulation &amp; Failure Modes</h2>
 <p>
   Modern large language model (LLM) agents, when prompted with <em>"refactor the retry logic in the payment service"</em>, generate code modifications across multiple workspace files. However, autoregressive language models are token-level probabilistic generators, not code execution environments. When generating their final turn response, models exhibit a strong token-level preference for outputting completion declarations like <code>"Task complete!"</code> or <code>"I have updated the code successfully."</code> without invoking verification toolchains.
 </p>
@@ -587,7 +465,7 @@
 </div>
 
 <!-- Section 2 -->
-<h2 id="psychology"><span class="sec-num">02</span> Cognitive & Psychological Foundation</h2>
+<h2 id="psychology"><span class="sec-num">02</span> Cognitive &amp; Psychological Foundation</h2>
 <p>
   The name <strong>OCD</strong> draws directly from cognitive science and behavioral psychology research on <em>compulsive checking rituals</em><sup><a href="#ref-rachman">5</a></sup>. In human psychology, compulsive checking is a behavioral adaptation triggered by high risk-aversion and perceived threat of harm: individuals execute repetitive, rigid verification rituals until absolute state certainty is established.
 </p>
@@ -608,7 +486,7 @@
   <strong>ReAct</strong><sup><a href="#ref-react">3</a></sup> interleaves reasoning thoughts with tool execution. While ReAct enables tool calling, it leaves the decision of <em>when</em> to call verification tools up to the model. Under long context windows, models frequently skip verification tool calls and emit final answers prematurely.
 </p>
 
-<h3>Reflexion & Self-Correction</h3>
+<h3>Reflexion &amp; Self-Correction</h3>
 <p>
   <strong>Reflexion</strong><sup><a href="#ref-reflexion">7</a></sup> introduces verbal reinforcement learning where agents read evaluation feedback and retry. However, Reflexion assumes an external evaluator exists to score agent output. OCD provides that exact external evaluator — generating structured stack trace feedback for the self-remediation loop.
 </p>
@@ -640,7 +518,7 @@
       </defs>
       
       <g fill="none">
-        <!-- Connecting Line Paths with High Contrast Glow -->
+        <!-- Connecting Line Paths -->
         <path d="M 140 155 C 160 155, 165 46, 180 46" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arr)"/>
         <path d="M 140 155 C 160 155, 165 116, 180 116" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arr)"/>
         <path d="M 140 155 C 160 155, 165 186, 180 186" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arr)"/>
@@ -699,15 +577,145 @@
   </div>
 </div>
 
+<!-- Section 5 -->
+<h2 id="features"><span class="sec-num">05</span> Exhaustive Feature &amp; Component Manual</h2>
+
+<h3>5.1 Phase 1: Cleanliness Audit Engine</h3>
+<p>
+  The Cleanliness Audit inspects every line of code modified in the current git working tree (via <code>git diff HEAD</code> or <code>git diff</code> fallback). It scans for leftover debug statements across all major programming languages:
+</p>
 <ul>
-  <li><strong>Phase 1 (Cleanliness Audit):</strong> Scans modified git files for leftover debug primitives: <code>console.log</code>, <code>debugger</code>, <code>print()</code>, <code>System.out.println</code>, <code>binding.pry</code>, <code>fmt.Println</code>, <code>pdb.set_trace</code>. Supports <code>// ocd-ignore</code> line-level directives.</li>
-  <li><strong>Phase 2 (Typecheck Verification):</strong> Auto-detects project type checkers: TypeScript (<code>tsconfig.json</code> ➔ <code>tsc --noEmit</code>), Rust (<code>Cargo.toml</code> ➔ <code>cargo check</code>), and Python (<code>pyproject.toml</code> ➔ <code>mypy .</code>).</li>
-  <li><strong>Phase 3 (Test Suite Audit):</strong> Auto-detects test runners: Node.js (<code>npm test</code>), Rust (<code>cargo test</code>), or Python (<code>pytest</code>). Captures complete failure output.</li>
-  <li><strong>Phase 4 (Git Diff Scope Audit):</strong> Audits <code>git diff --stat HEAD</code> line count insertions, deletions, and changed file bounds (&lt; 15 files, &lt; 500 lines modified).</li>
+  <li><strong>JavaScript / TypeScript:</strong> <code>console.log</code>, <code>console.error</code>, <code>debugger</code></li>
+  <li><strong>Python:</strong> <code>print()</code>, <code>import pdb; pdb.set_trace()</code></li>
+  <li><strong>Java / Kotlin / Scala:</strong> <code>System.out.println</code></li>
+  <li><strong>Ruby:</strong> <code>binding.pry</code>, <code>puts</code></li>
+  <li><strong>Go (Golang):</strong> <code>fmt.Println</code></li>
+  <li><strong>C / C++ / Rust:</strong> <code>printf()</code>, <code>println!</code></li>
 </ul>
 
-<!-- Section 5 -->
-<h2 id="simulator"><span class="sec-num">05</span> Interactive Verification Simulator</h2>
+<p><strong>Bypass Directives:</strong> If a log statement is intentional (e.g. production logger or CLI output), append <code>// ocd-ignore</code> or <code># ocd-ignore</code> on the target line or the line immediately preceding it. The scanner will skip the directive line.</p>
+
+<p><strong>Auto-Fix Mode (`--fix`):</strong> When run with <code>ocd --fix</code>, the cleanliness engine automatically removes flagged debug log lines from modified files and saves the clean state.</p>
+
+<h3>5.2 Phase 2: Compiler &amp; Typecheck Verification Engine</h3>
+<p>
+  Auto-detects root workspace project manifests and invokes the project's native compiler:
+</p>
+<ul>
+  <li><strong>TypeScript (<code>tsconfig.json</code>):</strong> Executes <code>npx -p typescript tsc --noEmit</code> to ensure full type resolution even when <code>typescript</code> is not installed in local <code>node_modules</code>.</li>
+  <li><strong>Rust (<code>Cargo.toml</code>):</strong> Executes <code>cargo check</code>.</li>
+  <li><strong>Python (<code>pyproject.toml</code> / <code>mypy.ini</code>):</strong> Executes <code>mypy .</code>.</li>
+</ul>
+
+<h3>5.3 Phase 3: Test Suite Audit Engine</h3>
+<p>
+  Auto-detects test runners and executes project unit/integration test suites:
+</p>
+<ul>
+  <li><strong>Node.js / TS (<code>package.json</code>):</strong> Executes <code>npm test</code> (Jest, Vitest, Mocha, Node Native Test Runner).</li>
+  <li><strong>Rust (<code>Cargo.toml</code>):</strong> Executes <code>cargo test</code>.</li>
+  <li><strong>Python (<code>pyproject.toml</code> / <code>tests/</code>):</strong> Executes <code>pytest</code> or <code>unittest</code>.</li>
+</ul>
+
+<h3>5.4 Phase 4: Git Diff Scope Audit Engine</h3>
+<p>
+  Executes <code>git diff --stat HEAD</code> to audit change statistics. Prevents AI agents from modifying unrelated workspace files or producing massive, unreviewable pull requests:
+</p>
+<ul>
+  <li><strong>File Bound:</strong> Max 15 modified files per task.</li>
+  <li><strong>Line Insertion Bound:</strong> Max 500 changed lines per task.</li>
+</ul>
+
+<!-- Section 6 -->
+<h2 id="cli"><span class="sec-num">06</span> Complete CLI Reference Manual</h2>
+
+<p>The <code>ocd</code> executable supports the following CLI options:</p>
+
+<pre><code>USAGE
+  $ ocd [flags]
+
+FLAGS
+  --strict    Fail process if any warnings (e.g. debug statements) are detected
+  --json      Output raw, machine-readable JSON report for LLM context processing
+  --fix       Attempt automatic remediation by removing clean-up debug statements
+  --quiet     Suppress progress output and show final result only
+  -h, --help  Display this help manual</code></pre>
+
+<h3>JSON Schema Output Spec (`--json`)</h3>
+<p>When run with <code>--json</code>, OCD emits structured JSON parseable by AI agent orchestrators:</p>
+
+<pre><code>{
+  "timestamp": "2026-07-22T17:19:00.000Z",
+  "overallPassed": false,
+  "strictMode": true,
+  "totalErrors": 1,
+  "totalWarnings": 0,
+  "phases": [
+    {
+      "name": "cleanliness",
+      "passed": false,
+      "issues": [
+        {
+          "file": "src/payments.ts",
+          "line": 42,
+          "message": "Leftover debug statement 'console.log'",
+          "severity": "error",
+          "snippet": "console.log('token:', token);"
+        }
+      ]
+    }
+  ]
+}</code></pre>
+
+<!-- Section 7 -->
+<h2 id="integrations"><span class="sec-num">07</span> Agent Skill &amp; CI/CD Integrations</h2>
+
+<h3>7.1 Installing as an AI Agent Skill (Antigravity, Cursor, Claude Code, Windsurf)</h3>
+<p>Run the universal skill command in your integrated terminal:</p>
+<pre><code>npx skills add AmirhosseinRashidi/ocd</code></pre>
+
+<p>Alternatively, copy <code>skills/ocd/SKILL.md</code> into your project's <code>.agents/skills/ocd/SKILL.md</code> directory.</p>
+
+<h3>7.2 Git Pre-Commit Hook Integration (`husky`)</h3>
+<p>Add OCD as an unbypassable pre-commit hook in `.husky/pre-commit`:</p>
+<pre><code>#!/bin/sh
+npx ocd-agent --strict</code></pre>
+
+<h3>7.3 GitHub Actions Workflow Integration (`.github/workflows/ci.yml`)</h3>
+<pre><code>name: OCD Quality Gate
+on: [push, pull_request]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npx ocd-agent --strict --json</code></pre>
+
+<!-- Section 8 -->
+<h2 id="api"><span class="sec-num">08</span> Programmatic TypeScript API</h2>
+<p>Integrate OCD directly into custom Node.js / TypeScript agent frameworks:</p>
+
+<pre><code>import { runPipeline } from "ocd-agent";
+
+const report = await runPipeline({
+  strict: true,
+  json: true,
+  fix: false,
+  quiet: false
+});
+
+if (!report.overallPassed) {
+  console.error(`OCD Gate Rejected Task: ${report.totalErrors} errors found.`);
+  // Re-inject failure stack traces into LLM context for self-healing
+}</code></pre>
+
+<!-- Section 9 -->
+<h2 id="simulator"><span class="sec-num">09</span> Interactive Verification Simulator</h2>
 <p>
   Click through the interactive tabbed terminal simulator below to inspect real OCD sub-process execution reports across different failure modes:
 </p>
@@ -734,28 +742,8 @@
   </div>
 </div>
 
-<!-- Section 6 -->
-<h2 id="impl"><span class="sec-num">06</span> Implementation & Engine API</h2>
-<p>
-  OCD is implemented in pure TypeScript ES2022 / NodeNext with zero runtime external dependencies. It provides a CLI binary (<code>ocd</code>) and a programmatic API (<code>ocd-agent</code>):
-</p>
-
-<pre><code>import { runPipeline } from "ocd-agent";
-
-const report = await runPipeline({
-  strict: true,
-  json: false,
-  fix: false,
-  quiet: false
-});
-
-if (!report.overallPassed) {
-  console.error(`Verification Failed: ${report.totalErrors} errors found.`);
-  // Re-inject failure stack trace into agent context for self-healing
-}</code></pre>
-
-<!-- Section 7 -->
-<h2 id="eval"><span class="sec-num">07</span> Empirical Benchmarks</h2>
+<!-- Section 10 -->
+<h2 id="eval"><span class="sec-num">10</span> Empirical Benchmarks</h2>
 <p>
   We benchmarked OCD across 10 real-world software engineering refactoring tasks, comparing an un-gated single-shot agent (Claude 3.5 Sonnet) against an OCD-gated agent loop.
 </p>
@@ -807,14 +795,14 @@ if (!report.overallPassed) {
   <strong>Results:</strong> OCD reduced task failure rate from <strong>42% to 0%</strong>. Un-gated baseline agents failed primarily due to uncaught compiler type mismatches (35%) or broken unit test regressions (28%). Under OCD, the agent self-healed all errors within 1–2 remediation turns.
 </p>
 
-<!-- Section 8 -->
-<h2 id="conclusion"><span class="sec-num">08</span> Conclusion</h2>
+<!-- Section 11 -->
+<h2 id="conclusion"><span class="sec-num">11</span> Conclusion</h2>
 <p>
   Premature completion declaration is an architectural flaw in autoregressive AI coding agents. We introduced OCD, a 4-phase verification protocol that replaces prompt-level trust with non-negotiable OS-level verification gates. By combining cleanliness scanning, compiler typechecking, test execution, and diff auditing, OCD guarantees that AI coding agents ship production-grade, error-free software.
 </p>
 
-<!-- Section 9 -->
-<h2 id="refs"><span class="sec-num">09</span> References</h2>
+<!-- Section 12 -->
+<h2 id="refs"><span class="sec-num">12</span> References</h2>
 <ol class="refs-list">
   <li id="ref-selfcorrect">
     Huang, J., Chen, X., Mishra, S., et al. <em>Large Language Models Cannot Self-Correct Reasoning Yet</em>. ICLR 2024. <a href="https://arxiv.org/abs/2310.01798" target="_blank">arXiv:2310.01798</a>
