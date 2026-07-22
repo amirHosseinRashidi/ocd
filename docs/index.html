@@ -18,30 +18,33 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #07090e;
-    --bg-card: #0e131f;
-    --bg-code: #0b0f19;
-    --border: #1e293b;
-    --border-accent: #0ea5e9;
+    --bg: #05070d;
+    --bg-card: #0a0e1a;
+    --bg-card-inner: #070a14;
+    --bg-code: #03050a;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-accent: #38bdf8;
     --fg: #f8fafc;
     --muted: #94a3b8;
-    --muted-dark: #64748b;
+    --muted-dark: #475569;
     --accent: #38bdf8;
-    --accent-glow: rgba(56, 189, 248, 0.15);
+    --accent-glow: rgba(56, 189, 248, 0.12);
     --pass: #10b981;
     --fail: #f43f5e;
     --warn: #f59e0b;
     --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-mono: 'Geist Mono', 'JetBrains Mono', monospace;
-    --max-w: 860px;
+    --max-w: 920px;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   @media (prefers-color-scheme: light) {
     :root {
       --bg: #f8fafc;
       --bg-card: #ffffff;
+      --bg-card-inner: #f1f5f9;
       --bg-code: #0f172a;
-      --border: #e2e8f0;
+      --border: rgba(0, 0, 0, 0.08);
       --border-accent: #0284c7;
       --fg: #0f172a;
       --muted: #475569;
@@ -63,45 +66,47 @@
     color: var(--fg);
     font-family: var(--font-sans);
     font-size: 16.5px;
-    line-height: 1.65;
-    letter-spacing: -0.01em;
+    line-height: 1.7;
+    letter-spacing: -0.012em;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Grid overlay effect */
+  .bg-grid {
+    background-size: 48px 48px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   }
 
   .wrap {
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: 64px 28px 120px;
+    padding: 72px 28px 140px;
   }
 
-  /* Grid overlay effect */
-  .bg-grid {
-    background-size: 40px 40px;
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  }
-
+  /* Header & Navigation Bar */
   header {
     border-bottom: 1px solid var(--border);
-    padding-bottom: 36px;
-    margin-bottom: 48px;
+    padding-bottom: 48px;
+    margin-bottom: 56px;
     position: relative;
   }
 
   .badge-strip {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: 11.5px;
   }
 
   .tag {
-    padding: 4px 10px;
-    border-radius: 4px;
+    padding: 5px 12px;
+    border-radius: 9999px;
     background: var(--bg-card);
     border: 1px solid var(--border);
     color: var(--accent);
@@ -118,39 +123,54 @@
   }
 
   h1 {
-    font-size: 2.5em;
+    font-size: 2.85em;
     font-weight: 800;
-    line-height: 1.12;
-    letter-spacing: -0.03em;
-    margin: 0 0 16px;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    margin: 0 0 20px;
     color: var(--fg);
   }
 
   h1 .highlight {
-    background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, #a855f7 50%, #ec4899 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .subtitle {
-    font-size: 1.15em;
+    font-size: 1.25em;
     color: var(--muted);
     font-weight: 400;
-    margin: 0 0 24px;
-    line-height: 1.5;
+    margin: 0 0 32px;
+    line-height: 1.55;
+    max-width: 780px;
   }
 
+  /* Doppelrand Double-Bezel Component */
+  .double-bezel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 6px;
+    box-shadow: 0 20px 40px -15px var(--accent-glow);
+    transition: transform 0.3s var(--ease-out), border-color 0.3s ease;
+  }
+
+  .bezel-core {
+    background: var(--bg-card-inner);
+    border-radius: calc(1.25rem - 6px);
+    padding: 24px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  /* Meta Bar */
   .meta-bar {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding: 16px 20px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 14px;
+    font-size: 14.5px;
   }
 
   .author-info {
@@ -162,67 +182,99 @@
     text-decoration: none;
   }
 
-  .nav-links {
+  .nav-actions {
     display: flex;
-    gap: 16px;
-    font-family: var(--font-mono);
-    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
-  .nav-links a {
-    color: var(--muted);
+  /* Button Architecture */
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    background: var(--accent);
+    color: #000000;
+    font-weight: 600;
+    font-size: 13.5px;
     text-decoration: none;
-    transition: color 0.15s ease;
+    transition: transform 0.2s var(--ease-out), filter 0.2s ease;
+    border: none;
+    cursor: pointer;
   }
 
-  .nav-links a:hover {
-    color: var(--accent);
+  .btn-pill:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
   }
 
-  /* Abstract Hero Box */
-  .abstract-box {
-    background: var(--bg-card);
+  .btn-pill:active {
+    transform: scale(0.98);
+  }
+
+  .btn-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-pill:hover .btn-icon-wrapper {
+    transform: translateX(2px) translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--fg);
     border: 1px solid var(--border);
-    border-left: 4px solid var(--accent);
-    padding: 24px 28px;
-    border-radius: 8px;
-    margin: 36px 0;
-    position: relative;
-    box-shadow: 0 10px 30px -10px var(--accent-glow);
+  }
+
+  .btn-secondary .btn-icon-wrapper {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Abstract Box */
+  .abstract-box {
+    margin: 40px 0;
   }
 
   .abstract-box h2 {
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: 11.5px;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     color: var(--accent);
-    margin: 0 0 12px;
+    margin: 0 0 14px;
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   .abstract-box p {
     margin: 0;
-    font-size: 15.5px;
-    line-height: 1.65;
+    font-size: 16px;
+    line-height: 1.7;
     color: var(--fg);
   }
 
   /* Table of Contents */
   .toc {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px 24px;
-    margin: 36px 0 48px;
+    margin: 40px 0 60px;
   }
 
   .toc-title {
     font-family: var(--font-mono);
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     color: var(--muted);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     font-weight: 600;
   }
 
@@ -231,7 +283,7 @@
     padding-left: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 8px 24px;
+    gap: 10px 28px;
   }
 
   .toc li a {
@@ -247,90 +299,82 @@
 
   /* Section Headings */
   h2 {
-    font-size: 1.5em;
+    font-size: 1.6em;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    margin: 56px 0 20px;
+    letter-spacing: -0.025em;
+    margin: 64px 0 24px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 10px;
+    padding-bottom: 12px;
   }
 
   h2 .sec-num {
     font-family: var(--font-mono);
-    font-size: 0.7em;
+    font-size: 0.65em;
     color: var(--accent);
     background: var(--accent-glow);
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
   }
 
   h3 {
-    font-size: 1.15em;
+    font-size: 1.18em;
     font-weight: 600;
-    margin: 32px 0 12px;
+    margin: 36px 0 14px;
     color: var(--fg);
   }
 
-  p { margin: 0 0 18px; color: var(--fg); }
+  p { margin: 0 0 20px; color: var(--fg); }
 
-  /* Pullquote / Callout */
-  .callout-quote {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    padding: 18px 22px;
-    margin: 28px 0;
-    border-radius: 6px;
-    font-size: 16px;
-    font-style: italic;
-    color: var(--fg);
+  /* Interactive Terminal Simulator */
+  .interactive-terminal {
+    margin: 40px 0;
   }
 
-  /* Terminal Simulation Block */
-  .terminal-window {
+  .term-tab-bar {
+    display: flex;
+    gap: 8px;
+    padding: 10px 16px 0;
     background: #020617;
-    border: 1px solid #1e293b;
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 32px 0;
-    font-family: var(--font-mono);
-    font-size: 13px;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-  }
-
-  .terminal-header {
-    background: #0f172a;
-    padding: 10px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     border-bottom: 1px solid #1e293b;
+    overflow-x: auto;
   }
 
-  .terminal-dots {
-    display: flex;
-    gap: 6px;
-  }
-
-  .dot { width: 10px; height: 10px; border-radius: 50%; }
-  .dot-red { background: #ef4444; }
-  .dot-yellow { background: #f59e0b; }
-  .dot-green { background: #10b981; }
-
-  .terminal-title {
+  .term-tab {
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-size: 12px;
     color: #64748b;
-    font-size: 11px;
-    letter-spacing: 0.05em;
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .term-tab:hover {
+    color: #94a3b8;
+  }
+
+  .term-tab.active {
+    color: #38bdf8;
+    background: #0b0f19;
+    border-color: #1e293b;
+    font-weight: 600;
   }
 
   .terminal-body {
-    padding: 18px 20px;
+    background: #0b0f19;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 13.5px;
     color: #e2e8f0;
-    line-height: 1.6;
+    line-height: 1.65;
+    border-radius: 0 0 calc(1.25rem - 6px) calc(1.25rem - 6px);
     overflow-x: auto;
   }
 
@@ -338,15 +382,11 @@
   .term-fail { color: var(--fail); font-weight: 600; }
   .term-warn { color: var(--warn); font-weight: 600; }
   .term-muted { color: #64748b; }
-  .term-cmd { color: #38bdf8; }
+  .term-cmd { color: #38bdf8; font-weight: 600; }
 
-  /* SVG Container */
+  /* SVG Diagram */
   .diagram-wrap {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px;
-    margin: 36px 0;
+    margin: 40px 0;
   }
 
   .diagram-wrap svg {
@@ -359,7 +399,7 @@
     font-size: 13px;
     color: var(--muted);
     text-align: center;
-    margin-top: 12px;
+    margin-top: 14px;
     font-family: var(--font-mono);
   }
 
@@ -367,16 +407,16 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 28px 0;
+    margin: 32px 0;
     font-size: 14.5px;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
   }
 
   th, td {
-    padding: 12px 16px;
+    padding: 14px 18px;
     border-bottom: 1px solid var(--border);
     text-align: left;
   }
@@ -396,22 +436,22 @@
   code {
     font-family: var(--font-mono);
     font-size: 0.88em;
-    background: var(--bg-card);
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border);
-    padding: 2px 6px;
-    border-radius: 4px;
+    padding: 2px 7px;
+    border-radius: 5px;
     color: var(--accent);
   }
 
   pre {
-    background: #020617;
+    background: #03050a;
     border: 1px solid var(--border);
-    padding: 16px 20px;
-    border-radius: 8px;
+    padding: 20px 24px;
+    border-radius: 12px;
     overflow-x: auto;
     font-family: var(--font-mono);
     font-size: 13.5px;
-    line-height: 1.55;
+    line-height: 1.6;
     color: #f8fafc;
   }
 
@@ -422,17 +462,17 @@
     color: inherit;
   }
 
-  ul, ol { padding-left: 20px; margin: 0 0 20px; }
-  li { margin: 6px 0; }
+  ul, ol { padding-left: 22px; margin: 0 0 24px; }
+  li { margin: 8px 0; }
 
   /* References Section */
   .refs-list {
     font-size: 14px;
-    padding-left: 20px;
+    padding-left: 22px;
   }
 
   .refs-list li {
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     color: var(--muted);
   }
 
@@ -443,8 +483,8 @@
   }
 
   footer {
-    margin-top: 80px;
-    padding-top: 24px;
+    margin-top: 96px;
+    padding-top: 32px;
     border-top: 1px solid var(--border);
     color: var(--muted);
     font-size: 13px;
@@ -453,7 +493,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 16px;
   }
 
   footer a { color: var(--accent); text-decoration: none; }
@@ -465,8 +505,8 @@
 <header>
   <div class="badge-strip">
     <span class="tag">Preprint · v1.0</span>
-    <span class="tag tag-date">Published July 22, 2026</span>
-    <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: var(--pass); border-color: rgba(16, 185, 129, 0.3);">Verification Gate</span>
+    <span class="tag tag-date">July 2026</span>
+    <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: var(--pass); border-color: rgba(16, 185, 129, 0.3);">Zero-Trust Gate</span>
   </div>
 
   <h1>
@@ -476,40 +516,52 @@
     A non-negotiable 4-phase auditing engine with zero-trust execution gates, automated stack trace capture, and agent self-remediation.
   </p>
 
-  <div class="meta-bar">
-    <div class="author-info">
-      Authored by <strong>AmirhosseinRashidi</strong> &nbsp;·&nbsp; 
-      <a href="https://github.com/AmirhosseinRashidi/ocd" target="_blank" rel="noopener">github.com/AmirhosseinRashidi/ocd</a>
-    </div>
-    <div class="nav-links">
-      <a href="https://github.com/AmirhosseinRashidi/ocd">Code</a>
-      <a href="https://www.npmjs.com/package/ocd-agent">NPM</a>
-      <a href="https://github.com/AmirhosseinRashidi/ocd/blob/main/skills/ocd/SKILL.md">Skill Spec</a>
-      <a href="https://github.com/AmirhosseinRashidi/ocd/blob/main/README.md">Docs</a>
+  <div class="double-bezel">
+    <div class="bezel-core">
+      <div class="meta-bar">
+        <div class="author-info">
+          Authored by <strong>AmirhosseinRashidi</strong> &nbsp;·&nbsp; 
+          <a href="https://github.com/AmirhosseinRashidi/ocd" target="_blank" rel="noopener">github.com/AmirhosseinRashidi/ocd</a>
+        </div>
+        <div class="nav-actions">
+          <a href="https://github.com/AmirhosseinRashidi/ocd" class="btn-pill">
+            <span>Repository</span>
+            <span class="btn-icon-wrapper">↗</span>
+          </a>
+          <button onclick="copyBibTeX()" class="btn-pill btn-secondary" id="copyBtn">
+            <span id="copyBtnText">Cite Paper</span>
+            <span class="btn-icon-wrapper">📋</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="abstract-box">
-    <h2>Abstract</h2>
-    <p>
-      Autonomous AI coding agents suffer from <strong>premature completion declaration</strong>: when assigned a programming task, they edit source files, assume their implementation is functional without execution validation, and exit turn loops — leaving behind uncaught type mismatches, failing test suites, unhandled edge cases, and leftover debug code (<code>console.log</code>, <code>debugger</code>, <code>print()</code>). We present <strong>OCD</strong> (Obsessive-Compulsive Verification Protocol), a method that intercepts agent task closure with a mandatory 4-phase verification pipeline: <strong>Cleanliness Audit</strong>, <strong>Typecheck Verification</strong>, <strong>Test Suite Audit</strong>, and <strong>Git Diff Scope Audit</strong>. OCD captures raw sub-process exit codes and failure stack traces, feeding them back into the agent context until 0 errors remain. Across 10 real-world engineering benchmarks, OCD reduces agent task failure rates from <strong>42% to 0%</strong>, eliminates <strong>100% of debug code leakage</strong>, and achieves a <strong>1.8× overall reliability gain</strong> over un-gated single-shot baseline agents.
-    </p>
+  <div class="double-bezel abstract-box">
+    <div class="bezel-core">
+      <h2>Abstract</h2>
+      <p>
+        Autonomous AI coding agents suffer from <strong>premature completion declaration</strong>: when assigned a programming task, they edit source files, assume their implementation is functional without execution validation, and exit turn loops — leaving behind uncaught type mismatches, failing test suites, unhandled edge cases, and leftover debug code (<code>console.log</code>, <code>debugger</code>, <code>print()</code>). We present <strong>OCD</strong> (Obsessive-Compulsive Verification Protocol), a method that intercepts agent task closure with a mandatory 4-phase verification pipeline: <strong>Cleanliness Audit</strong>, <strong>Typecheck Verification</strong>, <strong>Test Suite Audit</strong>, and <strong>Git Diff Scope Audit</strong>. OCD captures raw sub-process exit codes and failure stack traces, feeding them back into the agent context until 0 errors remain. Across 10 real-world engineering benchmarks, OCD reduces agent task failure rates from <strong>42% to 0%</strong>, eliminates <strong>100% of debug code leakage</strong>, and achieves a <strong>1.8× overall reliability gain</strong> over un-gated single-shot baseline agents.
+      </p>
+    </div>
   </div>
 </header>
 
-<nav class="toc">
-  <div class="toc-title">Protocol Specifications & Index</div>
-  <ol>
-    <li><a href="#intro">1. Problem Formulation</a></li>
-    <li><a href="#psychology">2. Cognitive & Psychological Basis</a></li>
-    <li><a href="#related">3. Related Work</a></li>
-    <li><a href="#architecture">4. The 4-Phase Architecture</a></li>
-    <li><a href="#terminal">5. Terminal Output & Self-Healing</a></li>
-    <li><a href="#impl">6. Implementation & Engine</a></li>
-    <li><a href="#eval">7. Empirical Benchmarks</a></li>
-    <li><a href="#conclusion">8. Conclusion</a></li>
-    <li><a href="#refs">9. References</a></li>
-  </ol>
+<nav class="double-bezel toc">
+  <div class="bezel-core">
+    <div class="toc-title">Protocol Specifications & Index</div>
+    <ol>
+      <li><a href="#intro">1. Problem Formulation</a></li>
+      <li><a href="#psychology">2. Cognitive & Psychological Basis</a></li>
+      <li><a href="#related">3. Related Work</a></li>
+      <li><a href="#architecture">4. The 4-Phase Architecture</a></li>
+      <li><a href="#simulator">5. Interactive Verification Simulator</a></li>
+      <li><a href="#impl">6. Implementation & Engine</a></li>
+      <li><a href="#eval">7. Empirical Benchmarks</a></li>
+      <li><a href="#conclusion">8. Conclusion</a></li>
+      <li><a href="#refs">9. References</a></li>
+    </ol>
+  </div>
 </nav>
 
 <!-- Section 1 -->
@@ -522,8 +574,12 @@
   We formalize this systemic failure as <strong>premature completion declaration</strong>. In software engineering, premature completion is significantly more damaging than explicit code failure: a failing test halts CI pipelines, but a prematurely declared task ships uncaught type errors, broken integration contracts, leftover `console.log` statements, and unintended scope creep directly into production branches.
 </p>
 
-<div class="callout-quote">
-  "Chain-of-Thought makes agents think slower. ReAct makes agents use tools. OCD forces agents into a non-negotiable verification loop before task completion is allowed."
+<div class="double-bezel" style="margin: 28px 0;">
+  <div class="bezel-core" style="border-left: 3px solid var(--accent); border-radius: calc(1.25rem - 6px);">
+    <p style="margin: 0; font-style: italic; font-size: 16px;">
+      "Chain-of-Thought makes agents think slower. ReAct makes agents use tools. OCD forces agents into a non-negotiable verification loop before task completion is allowed."
+    </p>
+  </div>
 </div>
 
 <!-- Section 2 -->
@@ -564,71 +620,73 @@
   OCD enforces verification across four sequential phases, executed in non-blocking order:
 </p>
 
-<div class="diagram-wrap">
-<svg viewBox="0 0 740 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OCD 4-Phase Pipeline Architecture">
-  <defs>
-    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
-    </marker>
-  </defs>
-  
-  <g fill="none" stroke="#334155" stroke-width="1.5">
-    <!-- Input -->
-    <rect x="20" y="115" width="115" height="50" rx="6" fill="#0e131f" stroke="#38bdf8"/>
-    <text x="77" y="138" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="12" font-weight="700">Agent Edits</text>
-    <text x="77" y="153" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">Working Tree</text>
+<div class="double-bezel diagram-wrap">
+  <div class="bezel-core">
+    <svg viewBox="0 0 740 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OCD 4-Phase Pipeline Architecture">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
+        </marker>
+      </defs>
+      
+      <g fill="none" stroke="#334155" stroke-width="1.5">
+        <!-- Input -->
+        <rect x="20" y="115" width="115" height="50" rx="6" fill="#070a14" stroke="#38bdf8"/>
+        <text x="77" y="138" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="12" font-weight="700">Agent Edits</text>
+        <text x="77" y="153" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">Working Tree</text>
 
-    <!-- Phase 1 -->
-    <rect x="180" y="20" width="140" height="46" rx="6" fill="#0e131f"/>
-    <text x="250" y="40" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 1: Cleanliness</text>
-    <text x="250" y="55" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Debug Primitives Scan</text>
+        <!-- Phase 1 -->
+        <rect x="180" y="20" width="140" height="46" rx="6" fill="#070a14"/>
+        <text x="250" y="40" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 1: Cleanliness</text>
+        <text x="250" y="55" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Debug Primitives Scan</text>
 
-    <!-- Phase 2 -->
-    <rect x="180" y="85" width="140" height="46" rx="6" fill="#0e131f"/>
-    <text x="250" y="105" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 2: Typecheck</text>
-    <text x="250" y="120" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">tsc / cargo / mypy</text>
+        <!-- Phase 2 -->
+        <rect x="180" y="85" width="140" height="46" rx="6" fill="#070a14"/>
+        <text x="250" y="105" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 2: Typecheck</text>
+        <text x="250" y="120" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">tsc / cargo / mypy</text>
 
-    <!-- Phase 3 -->
-    <rect x="180" y="150" width="140" height="46" rx="6" fill="#0e131f"/>
-    <text x="250" y="170" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 3: Test Suite</text>
-    <text x="250" y="185" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">npm test / pytest</text>
+        <!-- Phase 3 -->
+        <rect x="180" y="150" width="140" height="46" rx="6" fill="#070a14"/>
+        <text x="250" y="170" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 3: Test Suite</text>
+        <text x="250" y="185" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">npm test / pytest</text>
 
-    <!-- Phase 4 -->
-    <rect x="180" y="215" width="140" height="46" rx="6" fill="#0e131f"/>
-    <text x="250" y="235" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 4: Diff Audit</text>
-    <text x="250" y="250" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Git Stat &amp; File Bounds</text>
+        <!-- Phase 4 -->
+        <rect x="180" y="215" width="140" height="46" rx="6" fill="#070a14"/>
+        <text x="250" y="235" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 4: Diff Audit</text>
+        <text x="250" y="250" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Git Stat &amp; File Bounds</text>
 
-    <!-- Connectors -->
-    <line x1="135" y1="140" x2="180" y2="43" marker-end="url(#arr)"/>
-    <line x1="135" y1="140" x2="180" y2="108" marker-end="url(#arr)"/>
-    <line x1="135" y1="140" x2="180" y2="173" marker-end="url(#arr)"/>
-    <line x1="135" y1="140" x2="180" y2="238" marker-end="url(#arr)"/>
+        <!-- Connectors -->
+        <line x1="135" y1="140" x2="180" y2="43" marker-end="url(#arr)"/>
+        <line x1="135" y1="140" x2="180" y2="108" marker-end="url(#arr)"/>
+        <line x1="135" y1="140" x2="180" y2="173" marker-end="url(#arr)"/>
+        <line x1="135" y1="140" x2="180" y2="238" marker-end="url(#arr)"/>
 
-    <!-- Aggregator -->
-    <rect x="370" y="105" width="140" height="70" rx="6" fill="#0e131f" stroke="#334155"/>
-    <text x="440" y="135" text-anchor="middle" fill="#f8fafc" font-family="monospace" font-size="12" font-weight="700">OCD Orchestrator</text>
-    <text x="440" y="153" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Report Aggregator</text>
+        <!-- Aggregator -->
+        <rect x="370" y="105" width="140" height="70" rx="6" fill="#070a14" stroke="#334155"/>
+        <text x="440" y="135" text-anchor="middle" fill="#f8fafc" font-family="monospace" font-size="12" font-weight="700">OCD Orchestrator</text>
+        <text x="440" y="153" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Report Aggregator</text>
 
-    <line x1="320" y1="43" x2="370" y2="125" marker-end="url(#arr)"/>
-    <line x1="320" y1="108" x2="370" y2="135" marker-end="url(#arr)"/>
-    <line x1="320" y1="173" x2="370" y2="145" marker-end="url(#arr)"/>
-    <line x1="320" y1="238" x2="370" y2="155" marker-end="url(#arr)"/>
+        <line x1="320" y1="43" x2="370" y2="125" marker-end="url(#arr)"/>
+        <line x1="320" y1="108" x2="370" y2="135" marker-end="url(#arr)"/>
+        <line x1="320" y1="173" x2="370" y2="145" marker-end="url(#arr)"/>
+        <line x1="320" y1="238" x2="370" y2="155" marker-end="url(#arr)"/>
 
-    <!-- Out Gate Pass -->
-    <rect x="560" y="65" width="160" height="50" rx="6" fill="#0e131f" stroke="#10b981"/>
-    <text x="640" y="88" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="11" font-weight="700">✓ EXIT CODE 0</text>
-    <text x="640" y="103" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Task Marked Complete</text>
+        <!-- Out Gate Pass -->
+        <rect x="560" y="65" width="160" height="50" rx="6" fill="#070a14" stroke="#10b981"/>
+        <text x="640" y="88" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="11" font-weight="700">✓ EXIT CODE 0</text>
+        <text x="640" y="103" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Task Marked Complete</text>
 
-    <!-- Out Gate Fail -->
-    <rect x="560" y="165" width="160" height="50" rx="6" fill="#0e131f" stroke="#f43f5e"/>
-    <text x="640" y="188" text-anchor="middle" fill="#f43f5e" font-family="monospace" font-size="11" font-weight="700">✗ EXIT CODE 1</text>
-    <text x="640" y="203" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Self-Remediation Loop</text>
+        <!-- Out Gate Fail -->
+        <rect x="560" y="165" width="160" height="50" rx="6" fill="#070a14" stroke="#f43f5e"/>
+        <text x="640" y="188" text-anchor="middle" fill="#f43f5e" font-family="monospace" font-size="11" font-weight="700">✗ EXIT CODE 1</text>
+        <text x="640" y="203" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Self-Remediation Loop</text>
 
-    <line x1="510" y1="125" x2="560" y2="90" marker-end="url(#arr)"/>
-    <line x1="510" y1="155" x2="560" y2="190" marker-end="url(#arr)"/>
-  </g>
-</svg>
-<p class="caption">Fig. 1 — OCD Pipeline Architecture. Modified files undergo cleanliness, compiler, test suite, and scope auditing. Failures redirect stack traces back into the agent context.</p>
+        <line x1="510" y1="125" x2="560" y2="90" marker-end="url(#arr)"/>
+        <line x1="510" y1="155" x2="560" y2="190" marker-end="url(#arr)"/>
+      </g>
+    </svg>
+    <p class="caption">Fig. 1 — OCD Pipeline Architecture. Modified files undergo cleanliness, compiler, test suite, and scope auditing. Failures redirect stack traces back into the agent context.</p>
+  </div>
 </div>
 
 <ul>
@@ -639,29 +697,30 @@
 </ul>
 
 <!-- Section 5 -->
-<h2 id="terminal"><span class="sec-num">05</span> Terminal Output & Agent Self-Healing</h2>
+<h2 id="simulator"><span class="sec-num">05</span> Interactive Verification Simulator</h2>
 <p>
-  When OCD encounters a failure, it generates structured machine-readable terminal and JSON output designed for LLM context processing:
+  Click through the interactive tabbed terminal simulator below to inspect real OCD sub-process execution reports across different failure modes:
 </p>
 
-<div class="terminal-window">
-  <div class="terminal-header">
-    <div class="terminal-dots">
-      <div class="dot dot-red"></div>
-      <div class="dot dot-yellow"></div>
-      <div class="dot dot-green"></div>
+<div class="double-bezel interactive-terminal">
+  <div style="background: #020617; border-radius: calc(1.25rem - 6px) calc(1.25rem - 6px) 0 0; border-bottom: 1px solid #1e293b; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; gap: 6px;">
+      <div style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444;"></div>
+      <div style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b;"></div>
+      <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></div>
     </div>
-    <div class="terminal-title">bash — ocd --strict</div>
+    <div style="color: #64748b; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em;">ocd verification runner v1.0.0</div>
   </div>
-  <div class="terminal-body">
-    <div><span class="term-cmd">$ ocd --strict</span></div>
-    <div class="term-muted">OCD — Obsessive-Compulsive Verification Protocol (v1.0.0)</div>
-    <div style="margin-top: 10px;">[1/4] <span class="term-fail">✗ FAIL Cleanliness Check</span> — Leftover debug statement found</div>
-    <div class="term-muted">      src/payments.ts:L42 — console.log("Processing retry token:", token);</div>
-    <div style="margin-top: 6px;">[2/4] <span class="term-pass">✓ PASS Typecheck Check</span> — 0 compiler errors (tsc)</div>
-    <div style="margin-top: 6px;">[3/4] <span class="term-pass">✓ PASS Test Suite Check</span> — 4/4 passing (npm test)</div>
-    <div style="margin-top: 6px;">[4/4] <span class="term-pass">✓ PASS Git Diff Audit</span> — 2 files modified (+24, -8)</div>
-    <div style="margin-top: 12px;" class="term-fail">OVERALL RESULT: FAIL (1 Error, 0 Warnings) — Process Exited with Code 1</div>
+
+  <div class="term-tab-bar">
+    <button class="term-tab active" onclick="showTab('cleanliness')">Phase 1: Debug Leakage</button>
+    <button class="term-tab" onclick="showTab('typecheck')">Phase 2: Type Error</button>
+    <button class="term-tab" onclick="showTab('testfail')">Phase 3: Test Failure</button>
+    <button class="term-tab" onclick="showTab('allpass')">All Phases Pass</button>
+  </div>
+
+  <div class="terminal-body" id="tabContent">
+    <!-- Populated by JavaScript -->
   </div>
 </div>
 
@@ -772,7 +831,7 @@ if (!report.overallPassed) {
 
 <footer>
   <div>
-    Preprint v1.0 · Released July 22, 2026 · MIT License
+    Preprint v1.0 · Released July 2026 · MIT License
   </div>
   <div>
     Cite as: AmirhosseinRashidi. <em>OCD: Obsessive-Compulsive Verification Protocol for Coding Agents</em>. 2026. <a href="https://amirhosseinrashidi.github.io/ocd/">amirhosseinrashidi.github.io/ocd/</a>
@@ -780,5 +839,75 @@ if (!report.overallPassed) {
 </footer>
 
 </div>
+
+<script>
+const tabsData = {
+  cleanliness: `
+    <div><span class="term-cmd">$ ocd --strict</span></div>
+    <div class="term-muted">OCD — Obsessive-Compulsive Verification Protocol (v1.0.0)</div>
+    <div style="margin-top: 12px;">[1/4] <span class="term-fail">✗ FAIL Cleanliness Check</span> — Leftover debug statement found</div>
+    <div class="term-muted">      src/payments.ts:L42 — console.log("Processing retry token:", token);</div>
+    <div style="margin-top: 6px;">[2/4] <span class="term-pass">✓ PASS Typecheck Check</span> — 0 compiler errors (tsc)</div>
+    <div style="margin-top: 6px;">[3/4] <span class="term-pass">✓ PASS Test Suite Check</span> — 4/4 passing (npm test)</div>
+    <div style="margin-top: 6px;">[4/4] <span class="term-pass">✓ PASS Git Diff Audit</span> — 2 files modified (+24, -8)</div>
+    <div style="margin-top: 14px;" class="term-fail">OVERALL RESULT: FAIL (1 Error, 0 Warnings) — Process Exited with Code 1</div>
+  `,
+  typecheck: `
+    <div><span class="term-cmd">$ ocd</span></div>
+    <div class="term-muted">OCD — Obsessive-Compulsive Verification Protocol (v1.0.0)</div>
+    <div style="margin-top: 12px;">[1/4] <span class="term-pass">✓ PASS Cleanliness Check</span> — 0 debug artifacts found</div>
+    <div style="margin-top: 6px;">[2/4] <span class="term-fail">✗ FAIL Typecheck Check</span> — Compiler type mismatch detected</div>
+    <div class="term-muted">      src/pipeline.ts:L88:21 - error TS2322: Type 'string' is not assignable to type 'number'.</div>
+    <div class="term-muted">      88   const timeoutMs: number = flags.timeout;</div>
+    <div style="margin-top: 6px;">[3/4] <span class="term-pass">✓ PASS Test Suite Check</span> — 4/4 passing (npm test)</div>
+    <div style="margin-top: 6px;">[4/4] <span class="term-pass">✓ PASS Git Diff Audit</span> — 3 files modified (+42, -15)</div>
+    <div style="margin-top: 14px;" class="term-fail">OVERALL RESULT: FAIL (1 Error, 0 Warnings) — Process Exited with Code 1</div>
+  `,
+  testfail: `
+    <div><span class="term-cmd">$ ocd</span></div>
+    <div class="term-muted">OCD — Obsessive-Compulsive Verification Protocol (v1.0.0)</div>
+    <div style="margin-top: 12px;">[1/4] <span class="term-pass">✓ PASS Cleanliness Check</span> — 0 debug artifacts found</div>
+    <div style="margin-top: 6px;">[2/4] <span class="term-pass">✓ PASS Typecheck Check</span> — 0 compiler errors (tsc)</div>
+    <div style="margin-top: 6px;">[3/4] <span class="term-fail">✗ FAIL Test Suite Check</span> — 1 test case regression</div>
+    <div class="term-muted">      FAIL tests/auth.test.ts > should refresh expired JWT session token</div>
+    <div class="term-muted">      AssertionError: expected '401' to equal '200'</div>
+    <div style="margin-top: 6px;">[4/4] <span class="term-pass">✓ PASS Git Diff Audit</span> — 1 file modified (+12, -4)</div>
+    <div style="margin-top: 14px;" class="term-fail">OVERALL RESULT: FAIL (1 Error, 0 Warnings) — Process Exited with Code 1</div>
+  `,
+  allpass: `
+    <div><span class="term-cmd">$ ocd --strict</span></div>
+    <div class="term-muted">OCD — Obsessive-Compulsive Verification Protocol (v1.0.0)</div>
+    <div style="margin-top: 12px;">[1/4] <span class="term-pass">✓ PASS Cleanliness Check</span> — 0 debug artifacts found</div>
+    <div style="margin-top: 6px;">[2/4] <span class="term-pass">✓ PASS Typecheck Check</span> — 0 compiler errors (tsc --noEmit)</div>
+    <div style="margin-top: 6px;">[3/4] <span class="term-pass">✓ PASS Test Suite Check</span> — 4/4 passing (npm test)</div>
+    <div style="margin-top: 6px;">[4/4] <span class="term-pass">✓ PASS Git Diff Audit</span> — 3 files modified (+38, -12)</div>
+    <div style="margin-top: 14px;" class="term-pass">OVERALL RESULT: PASS (0 Errors, 0 Warnings) — Task Verified Clean</div>
+  `
+};
+
+function showTab(tabName) {
+  document.querySelectorAll('.term-tab').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('tabContent').innerHTML = tabsData[tabName];
+}
+
+// Initialize default tab
+document.getElementById('tabContent').innerHTML = tabsData.cleanliness;
+
+function copyBibTeX() {
+  const bibtex = `@article{rashidi2026ocd,
+  title={OCD: Obsessive-Compulsive Verification Protocol for Coding Agents},
+  author={Rashidi, Amirhossein},
+  journal={Preprint},
+  year={2026},
+  url={https://amirhosseinrashidi.github.io/ocd/}
+}`;
+  navigator.clipboard.writeText(bibtex).then(() => {
+    const btn = document.getElementById('copyBtnText');
+    btn.textContent = 'Copied BibTeX!';
+    setTimeout(() => { btn.textContent = 'Cite Paper'; }, 2000);
+  });
+}
+</script>
 </body>
 </html>
