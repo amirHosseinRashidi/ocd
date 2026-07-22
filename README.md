@@ -12,6 +12,7 @@
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](./README.md)
 [![Paper](https://img.shields.io/badge/paper-preprint-blueviolet)](https://amirhosseinrashidi.github.io/ocd/)
 [![Featured](https://img.shields.io/badge/featured-Agentic%20Verification-ff5500)](https://github.com/AmirhosseinRashidi/ocd)
+[![Telegram](https://img.shields.io/badge/Telegram-Contact%20%40AmirhosseinRashidii-2CA5E0?logo=telegram&logoColor=white)](https://t.me/AmirhosseinRashidii)
 
 > 👉 [**Join the OCD Community →**](https://github.com/AmirhosseinRashidi/ocd) as a contributor, maintainer, or early adopter. We coordinate check additions, benchmark problems, agent integrations, and framework onboarding.
 
@@ -218,6 +219,20 @@ Mean scores across 10 open-ended coding tasks comparing un-gated agent outputs a
 
 ---
 
+## 💼 AI Integration & Custom Software Services
+
+> **Building Next-Gen Autonomous AI Agents, Toolchains, or Custom Software Systems?**
+
+I offer specialized architecture consulting, custom AI agent development, zero-trust verification toolchains, and enterprise software engineering services.
+
+- 🤖 **Custom AI Agent Tooling:** Building specialized verification loops, multi-agent orchestrators, and prompt engineering gates.
+- ⚡ **Software Architecture Services:** Designing high-throughput, resilient backend services and polyglot developer platforms.
+- 💬 **Get in Touch:** Direct message on Telegram at **[@AmirhosseinRashidii](https://t.me/AmirhosseinRashidii)** for project inquiries, technical advisory, or engineering engagements.
+
+[![Contact on Telegram](https://img.shields.io/badge/Contact_on_Telegram-%40AmirhosseinRashidii-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/AmirhosseinRashidii)
+
+---
+
 ## License
 
 MIT License. Copyright (c) 2026 **AmirhosseinRashidi**.
@@ -228,6 +243,7 @@ MIT License. Copyright (c) 2026 **AmirhosseinRashidi**.
 
 **AmirhosseinRashidi** — Creator and maintainer of the OCD Protocol.
 
+- **Telegram:** [@AmirhosseinRashidii](https://t.me/AmirhosseinRashidii)
 - **GitHub:** [@AmirhosseinRashidi](https://github.com/AmirhosseinRashidi)
 - **Repository:** [https://github.com/AmirhosseinRashidi/ocd](https://github.com/AmirhosseinRashidi/ocd)
 
