@@ -621,74 +621,74 @@
 </p>
 
 <div class="double-bezel diagram-wrap">
-  <div class="bezel-core" style="background: #030712; padding: 32px 24px;">
-    <svg viewBox="0 0 740 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OCD 4-Phase Pipeline Architecture">
+  <div class="bezel-core" style="background: #090e17; padding: 32px 24px; border: 1px solid #1e293b;">
+    <svg viewBox="0 0 740 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OCD 4-Phase Pipeline Architecture">
       <defs>
         <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
           <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
         </marker>
         <marker id="arr-pass" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+          <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
         </marker>
         <marker id="arr-fail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M0,0 L10,5 L0,10 z" fill="#f43f5e"/>
+          <path d="M0,0 L10,5 L0,10 z" fill="#fb7185"/>
         </marker>
       </defs>
       
       <g fill="none">
-        <!-- Connecting Line Paths with Glow -->
-        <path d="M 135 150 C 155 150, 160 43, 180 43" stroke="#0284c7" stroke-width="2" marker-end="url(#arr)"/>
-        <path d="M 135 150 C 155 150, 160 108, 180 108" stroke="#0284c7" stroke-width="2" marker-end="url(#arr)"/>
-        <path d="M 135 150 C 155 150, 160 173, 180 173" stroke="#0284c7" stroke-width="2" marker-end="url(#arr)"/>
-        <path d="M 135 150 C 155 150, 160 238, 180 238" stroke="#0284c7" stroke-width="2" marker-end="url(#arr)"/>
+        <!-- Connecting Line Paths with High Contrast Glow -->
+        <path d="M 140 155 C 160 155, 165 46, 180 46" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arr)"/>
+        <path d="M 140 155 C 160 155, 165 116, 180 116" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arr)"/>
+        <path d="M 140 155 C 160 155, 165 186, 180 186" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arr)"/>
+        <path d="M 140 155 C 160 155, 165 256, 180 256" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arr)"/>
 
-        <path d="M 330 43 C 350 43, 355 135, 370 135" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
-        <path d="M 330 108 C 350 108, 355 145, 370 145" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
-        <path d="M 330 173 C 350 173, 355 155, 370 155" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
-        <path d="M 330 238 C 350 238, 355 165, 370 165" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+        <path d="M 335 46 C 355 46, 360 142, 370 142" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arr)"/>
+        <path d="M 335 116 C 355 116, 360 152, 370 152" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arr)"/>
+        <path d="M 335 186 C 355 186, 360 162, 370 162" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arr)"/>
+        <path d="M 335 256 C 355 256, 360 172, 370 172" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arr)"/>
 
-        <path d="M 510 135 C 535 135, 540 90, 560 90" stroke="#10b981" stroke-width="2" marker-end="url(#arr-pass)"/>
-        <path d="M 510 165 C 535 165, 540 210, 560 210" stroke="#f43f5e" stroke-width="2" marker-end="url(#arr-fail)"/>
+        <path d="M 515 142 C 540 142, 545 92, 560 92" stroke="#34d399" stroke-width="2.5" marker-end="url(#arr-pass)"/>
+        <path d="M 515 172 C 540 172, 545 222, 560 222" stroke="#fb7185" stroke-width="2.5" marker-end="url(#arr-fail)"/>
 
         <!-- Input Box -->
-        <rect x="15" y="123" width="120" height="54" rx="8" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
-        <text x="75" y="146" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Agent Edits</text>
-        <text x="75" y="163" text-anchor="middle" fill="#bae6fd" font-family="monospace" font-size="11">Working Tree</text>
+        <rect x="10" y="125" width="130" height="60" rx="8" fill="#0284c7" stroke="#38bdf8" stroke-width="2.5"/>
+        <text x="75" y="150" text-anchor="middle" fill="#ffffff" font-family="'Geist', sans-serif" font-size="14" font-weight="800">Agent Edits</text>
+        <text x="75" y="169" text-anchor="middle" fill="#e0f2fe" font-family="'Geist Mono', monospace" font-size="11.5" font-weight="600">Working Tree</text>
 
         <!-- Phase 1 -->
-        <rect x="180" y="16" width="150" height="54" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="2"/>
-        <text x="255" y="38" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Phase 1: Cleanliness</text>
-        <text x="255" y="55" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="11">Debug Primitives Scan</text>
+        <rect x="180" y="16" width="155" height="60" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2.5"/>
+        <text x="257" y="40" text-anchor="middle" fill="#ffffff" font-family="'Geist', sans-serif" font-size="13.5" font-weight="800">Phase 1: Cleanliness</text>
+        <text x="257" y="59" text-anchor="middle" fill="#38bdf8" font-family="'Geist', sans-serif" font-size="11.5" font-weight="600">Debug Primitives Scan</text>
 
         <!-- Phase 2 -->
-        <rect x="180" y="81" width="150" height="54" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="2"/>
-        <text x="255" y="103" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Phase 2: Typecheck</text>
-        <text x="255" y="120" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="11">tsc / cargo / mypy</text>
+        <rect x="180" y="86" width="155" height="60" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2.5"/>
+        <text x="257" y="110" text-anchor="middle" fill="#ffffff" font-family="'Geist', sans-serif" font-size="13.5" font-weight="800">Phase 2: Typecheck</text>
+        <text x="257" y="129" text-anchor="middle" fill="#38bdf8" font-family="'Geist', sans-serif" font-size="11.5" font-weight="600">tsc / cargo / mypy</text>
 
         <!-- Phase 3 -->
-        <rect x="180" y="146" width="150" height="54" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="2"/>
-        <text x="255" y="168" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Phase 3: Test Suite</text>
-        <text x="255" y="185" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="11">npm test / pytest</text>
+        <rect x="180" y="156" width="155" height="60" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2.5"/>
+        <text x="257" y="180" text-anchor="middle" fill="#ffffff" font-family="'Geist', sans-serif" font-size="13.5" font-weight="800">Phase 3: Test Suite</text>
+        <text x="257" y="199" text-anchor="middle" fill="#38bdf8" font-family="'Geist', sans-serif" font-size="11.5" font-weight="600">npm test / pytest</text>
 
         <!-- Phase 4 -->
-        <rect x="180" y="211" width="150" height="54" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="2"/>
-        <text x="255" y="233" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Phase 4: Diff Audit</text>
-        <text x="255" y="250" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="11">Git Stat &amp; File Bounds</text>
+        <rect x="180" y="226" width="155" height="60" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2.5"/>
+        <text x="257" y="250" text-anchor="middle" fill="#ffffff" font-family="'Geist', sans-serif" font-size="13.5" font-weight="800">Phase 4: Diff Audit</text>
+        <text x="257" y="269" text-anchor="middle" fill="#38bdf8" font-family="'Geist', sans-serif" font-size="11.5" font-weight="600">Git Stat &amp; File Bounds</text>
 
         <!-- Aggregator -->
-        <rect x="370" y="118" width="140" height="64" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
-        <text x="440" y="144" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">OCD Engine</text>
-        <text x="440" y="163" text-anchor="middle" fill="#c7d2fe" font-family="sans-serif" font-size="11">Report Aggregator</text>
+        <rect x="370" y="125" width="145" height="64" rx="8" fill="#4338ca" stroke="#a5b4fc" stroke-width="2.5"/>
+        <text x="442" y="151" text-anchor="middle" fill="#ffffff" font-family="'Geist', sans-serif" font-size="14" font-weight="800">OCD Engine</text>
+        <text x="442" y="170" text-anchor="middle" fill="#e0e7ff" font-family="'Geist', sans-serif" font-size="12" font-weight="600">Report Aggregator</text>
 
         <!-- Out Gate Pass -->
-        <rect x="560" y="62" width="165" height="56" rx="8" fill="#022c22" stroke="#10b981" stroke-width="2"/>
-        <text x="642" y="86" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="12" font-weight="700">✓ EXIT CODE 0</text>
-        <text x="642" y="103" text-anchor="middle" fill="#a7f3d0" font-family="sans-serif" font-size="11">Task Marked Complete</text>
+        <rect x="560" y="62" width="170" height="60" rx="8" fill="#065f46" stroke="#34d399" stroke-width="2.5"/>
+        <text x="645" y="87" text-anchor="middle" fill="#ffffff" font-family="'Geist Mono', monospace" font-size="13.5" font-weight="800">✓ EXIT CODE 0</text>
+        <text x="645" y="106" text-anchor="middle" fill="#a7f3d0" font-family="'Geist', sans-serif" font-size="11.5" font-weight="600">Task Marked Complete</text>
 
         <!-- Out Gate Fail -->
-        <rect x="560" y="182" width="165" height="56" rx="8" fill="#31121d" stroke="#f43f5e" stroke-width="2"/>
-        <text x="642" y="206" text-anchor="middle" fill="#f87171" font-family="monospace" font-size="12" font-weight="700">✗ EXIT CODE 1</text>
-        <text x="642" y="223" text-anchor="middle" fill="#fecdd3" font-family="sans-serif" font-size="11">Self-Remediation Loop</text>
+        <rect x="560" y="192" width="170" height="60" rx="8" fill="#9f1239" stroke="#fb7185" stroke-width="2.5"/>
+        <text x="645" y="217" text-anchor="middle" fill="#ffffff" font-family="'Geist Mono', monospace" font-size="13.5" font-weight="800">✗ EXIT CODE 1</text>
+        <text x="645" y="236" text-anchor="middle" fill="#fecdd3" font-family="'Geist', sans-serif" font-size="11.5" font-weight="600">Self-Remediation Loop</text>
       </g>
     </svg>
     <p class="caption">Fig. 1 — OCD Pipeline Architecture. Modified files undergo cleanliness, compiler, test suite, and scope auditing. Failures redirect stack traces back into the agent context.</p>
