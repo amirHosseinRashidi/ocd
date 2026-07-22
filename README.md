@@ -10,7 +10,7 @@
 [![npm](https://img.shields.io/npm/v/ocd-agent.svg)](https://www.npmjs.com/package/ocd-agent)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](./README.md)
-[![Paper](https://img.shields.io/badge/paper-preprint-blueviolet)](./docs/index.html)
+[![Paper](https://img.shields.io/badge/paper-preprint-blueviolet)](https://amirhosseinrashidi.github.io/ocd/)
 [![Featured](https://img.shields.io/badge/featured-Agentic%20Verification-ff5500)](https://github.com/AmirhosseinRashidi/ocd)
 
 > 👉 [**Join the OCD Community →**](https://github.com/AmirhosseinRashidi/ocd) as a contributor, maintainer, or early adopter. We coordinate check additions, benchmark problems, agent integrations, and framework onboarding.
@@ -23,7 +23,7 @@ Large language model agents suffer from **premature completion declaration**: wh
 
 Reach for OCD on **code modifications, refactoring tasks, bug fixes, pre-commit validation, and any agentic loop where premature completion is unacceptable**.
 
-📄 **Preprint:** [OCD: Obsessive-Compulsive Verification Protocol for Coding Agents](./docs/index.html) · 👤 **Author:** AmirhosseinRashidi — [@AmirhosseinRashidi](https://github.com/AmirhosseinRashidi)
+📄 **Preprint:** [OCD: Obsessive-Compulsive Verification Protocol for Coding Agents](https://amirhosseinrashidi.github.io/ocd/) · 👤 **Author:** AmirhosseinRashidi — [@AmirhosseinRashidi](https://github.com/AmirhosseinRashidi)
 
 ---
 
@@ -74,7 +74,7 @@ Independent benchmark evaluation: **Premature Completion Rate 42% → 0%, Uncaug
 ## Featured Integrations
 
 - 🔌 **Adopted by AI Agent Frameworks** — Integrates seamlessly with Claude Code, Cursor, Antigravity, Windsurf, Cline, Codex, and custom agentic harnesses.
-- 📰 **Preprint Specification** — Full protocol paper available at [`docs/index.html`](./docs/index.html).
+- 📰 **Preprint Specification** — Full protocol paper available at [https://amirhosseinrashidi.github.io/ocd/](https://amirhosseinrashidi.github.io/ocd/).
 - 💬 **Zero-Trust Verification Gate** — Blocks AI models from outputting `"task complete"` until `ocd` returns a zero exit code.
 
 ---
@@ -210,7 +210,7 @@ Mean scores across 10 open-ended coding tasks comparing un-gated agent outputs a
 | Page | Content Overview |
 |---|---|
 | [`skills/ocd/SKILL.md`](./skills/ocd/SKILL.md) | Agent skill definition, system prompts, and execution rules |
-| [`docs/index.html`](./docs/index.html) | Academic preprint paper for OCD |
+| [https://amirhosseinrashidi.github.io/ocd/](https://amirhosseinrashidi.github.io/ocd/) | Academic preprint paper for OCD |
 | [`src/types.ts`](./src/types.ts) | Core TypeScript interface contracts |
 | [`src/checks.ts`](./src/checks.ts) | Verification check implementations |
 | [`src/pipeline.ts`](./src/pipeline.ts) | Orchestrator and report aggregator |
