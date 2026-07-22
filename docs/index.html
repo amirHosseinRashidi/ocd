@@ -621,68 +621,74 @@
 </p>
 
 <div class="double-bezel diagram-wrap">
-  <div class="bezel-core">
-    <svg viewBox="0 0 740 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OCD 4-Phase Pipeline Architecture">
+  <div class="bezel-core" style="background: #030712; padding: 32px 24px;">
+    <svg viewBox="0 0 740 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OCD 4-Phase Pipeline Architecture">
       <defs>
         <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
           <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
         </marker>
+        <marker id="arr-pass" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+        </marker>
+        <marker id="arr-fail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#f43f5e"/>
+        </marker>
       </defs>
       
-      <g fill="none" stroke="#334155" stroke-width="1.5">
-        <!-- Input -->
-        <rect x="20" y="115" width="115" height="50" rx="6" fill="#070a14" stroke="#38bdf8"/>
-        <text x="77" y="138" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="12" font-weight="700">Agent Edits</text>
-        <text x="77" y="153" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">Working Tree</text>
+      <g fill="none">
+        <!-- Connecting Line Paths with Glow -->
+        <path d="M 135 150 C 155 150, 160 43, 180 43" stroke="#0284c7" stroke-width="2" marker-end="url(#arr)"/>
+        <path d="M 135 150 C 155 150, 160 108, 180 108" stroke="#0284c7" stroke-width="2" marker-end="url(#arr)"/>
+        <path d="M 135 150 C 155 150, 160 173, 180 173" stroke="#0284c7" stroke-width="2" marker-end="url(#arr)"/>
+        <path d="M 135 150 C 155 150, 160 238, 180 238" stroke="#0284c7" stroke-width="2" marker-end="url(#arr)"/>
+
+        <path d="M 330 43 C 350 43, 355 135, 370 135" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+        <path d="M 330 108 C 350 108, 355 145, 370 145" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+        <path d="M 330 173 C 350 173, 355 155, 370 155" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+        <path d="M 330 238 C 350 238, 355 165, 370 165" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)"/>
+
+        <path d="M 510 135 C 535 135, 540 90, 560 90" stroke="#10b981" stroke-width="2" marker-end="url(#arr-pass)"/>
+        <path d="M 510 165 C 535 165, 540 210, 560 210" stroke="#f43f5e" stroke-width="2" marker-end="url(#arr-fail)"/>
+
+        <!-- Input Box -->
+        <rect x="15" y="123" width="120" height="54" rx="8" fill="#0369a1" stroke="#38bdf8" stroke-width="2"/>
+        <text x="75" y="146" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Agent Edits</text>
+        <text x="75" y="163" text-anchor="middle" fill="#bae6fd" font-family="monospace" font-size="11">Working Tree</text>
 
         <!-- Phase 1 -->
-        <rect x="180" y="20" width="140" height="46" rx="6" fill="#070a14"/>
-        <text x="250" y="40" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 1: Cleanliness</text>
-        <text x="250" y="55" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Debug Primitives Scan</text>
+        <rect x="180" y="16" width="150" height="54" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="2"/>
+        <text x="255" y="38" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Phase 1: Cleanliness</text>
+        <text x="255" y="55" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="11">Debug Primitives Scan</text>
 
         <!-- Phase 2 -->
-        <rect x="180" y="85" width="140" height="46" rx="6" fill="#070a14"/>
-        <text x="250" y="105" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 2: Typecheck</text>
-        <text x="250" y="120" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">tsc / cargo / mypy</text>
+        <rect x="180" y="81" width="150" height="54" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="2"/>
+        <text x="255" y="103" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Phase 2: Typecheck</text>
+        <text x="255" y="120" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="11">tsc / cargo / mypy</text>
 
         <!-- Phase 3 -->
-        <rect x="180" y="150" width="140" height="46" rx="6" fill="#070a14"/>
-        <text x="250" y="170" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 3: Test Suite</text>
-        <text x="250" y="185" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">npm test / pytest</text>
+        <rect x="180" y="146" width="150" height="54" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="2"/>
+        <text x="255" y="168" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Phase 3: Test Suite</text>
+        <text x="255" y="185" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="11">npm test / pytest</text>
 
         <!-- Phase 4 -->
-        <rect x="180" y="215" width="140" height="46" rx="6" fill="#070a14"/>
-        <text x="250" y="235" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">Phase 4: Diff Audit</text>
-        <text x="250" y="250" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Git Stat &amp; File Bounds</text>
-
-        <!-- Connectors -->
-        <line x1="135" y1="140" x2="180" y2="43" marker-end="url(#arr)"/>
-        <line x1="135" y1="140" x2="180" y2="108" marker-end="url(#arr)"/>
-        <line x1="135" y1="140" x2="180" y2="173" marker-end="url(#arr)"/>
-        <line x1="135" y1="140" x2="180" y2="238" marker-end="url(#arr)"/>
+        <rect x="180" y="211" width="150" height="54" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="2"/>
+        <text x="255" y="233" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Phase 4: Diff Audit</text>
+        <text x="255" y="250" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="11">Git Stat &amp; File Bounds</text>
 
         <!-- Aggregator -->
-        <rect x="370" y="105" width="140" height="70" rx="6" fill="#070a14" stroke="#334155"/>
-        <text x="440" y="135" text-anchor="middle" fill="#f8fafc" font-family="monospace" font-size="12" font-weight="700">OCD Orchestrator</text>
-        <text x="440" y="153" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Report Aggregator</text>
-
-        <line x1="320" y1="43" x2="370" y2="125" marker-end="url(#arr)"/>
-        <line x1="320" y1="108" x2="370" y2="135" marker-end="url(#arr)"/>
-        <line x1="320" y1="173" x2="370" y2="145" marker-end="url(#arr)"/>
-        <line x1="320" y1="238" x2="370" y2="155" marker-end="url(#arr)"/>
+        <rect x="370" y="118" width="140" height="64" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+        <text x="440" y="144" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">OCD Engine</text>
+        <text x="440" y="163" text-anchor="middle" fill="#c7d2fe" font-family="sans-serif" font-size="11">Report Aggregator</text>
 
         <!-- Out Gate Pass -->
-        <rect x="560" y="65" width="160" height="50" rx="6" fill="#070a14" stroke="#10b981"/>
-        <text x="640" y="88" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="11" font-weight="700">✓ EXIT CODE 0</text>
-        <text x="640" y="103" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Task Marked Complete</text>
+        <rect x="560" y="62" width="165" height="56" rx="8" fill="#022c22" stroke="#10b981" stroke-width="2"/>
+        <text x="642" y="86" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="12" font-weight="700">✓ EXIT CODE 0</text>
+        <text x="642" y="103" text-anchor="middle" fill="#a7f3d0" font-family="sans-serif" font-size="11">Task Marked Complete</text>
 
         <!-- Out Gate Fail -->
-        <rect x="560" y="165" width="160" height="50" rx="6" fill="#070a14" stroke="#f43f5e"/>
-        <text x="640" y="188" text-anchor="middle" fill="#f43f5e" font-family="monospace" font-size="11" font-weight="700">✗ EXIT CODE 1</text>
-        <text x="640" y="203" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Self-Remediation Loop</text>
-
-        <line x1="510" y1="125" x2="560" y2="90" marker-end="url(#arr)"/>
-        <line x1="510" y1="155" x2="560" y2="190" marker-end="url(#arr)"/>
+        <rect x="560" y="182" width="165" height="56" rx="8" fill="#31121d" stroke="#f43f5e" stroke-width="2"/>
+        <text x="642" y="206" text-anchor="middle" fill="#f87171" font-family="monospace" font-size="12" font-weight="700">✗ EXIT CODE 1</text>
+        <text x="642" y="223" text-anchor="middle" fill="#fecdd3" font-family="sans-serif" font-size="11">Self-Remediation Loop</text>
       </g>
     </svg>
     <p class="caption">Fig. 1 — OCD Pipeline Architecture. Modified files undergo cleanliness, compiler, test suite, and scope auditing. Failures redirect stack traces back into the agent context.</p>
